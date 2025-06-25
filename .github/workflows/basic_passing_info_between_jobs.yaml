@@ -1,0 +1,35 @@
+name: "Basic: Passing Info Between Jobs"
+
+on: workflow_dispatch
+
+jobs:
+    foo_job:
+        name: Foo Job
+        runs-on: ubuntu-latest
+        steps:
+            - id: create_file
+              name: Create file
+              run: |
+                  echo "Hello World!" > "hello_world.txt"
+            - id: upload_file
+              name: Upload file
+              uses: actions/upload-artifact@v4
+              with:
+                  name: hello_world_artifact
+                  path: ./hello_world.txt
+        outputs:
+            hello_world_artifact_id: ${{ steps.upload_file.outputs.artifact-id }}
+
+    bar_job:
+        name: Bar Job
+        runs-on: ubuntu-latest
+        needs: [foo_job]
+        steps:
+            - name: Download file
+              uses: actions/download-artifact@v4
+              with:
+                  artifact-ids: ${{ needs.foo_job.outputs.hello_world_artifact_id }}
+                  path: ./
+            - name: Read file
+              run: |
+                  cat ./hello_world.txt
