@@ -30,6 +30,9 @@ jobs:
               with:
                   artifact-ids: ${{ needs.foo_job.outputs.hello_world_artifact_id }}
                   path: ./
+            - name: List files
+              run: |
+                  ls -ltra
             - name: Read file
               run: |
                   cat ./hello_world.txt
