@@ -1,0 +1,26 @@
+name: "Basic: Timeout"
+
+on: workflow_dispatch
+
+jobs:
+    foo_job:
+        runs-on: ubuntu-latest
+        name: foo_job
+        timeout-minutes: 1
+        steps:
+            - name: foo_step_1
+              run: |
+                  sleep 0.5m
+
+            - name: foo_step_2
+              run: |
+                  sleep 2m
+
+    bar_job:
+        runs-on: ubuntu-latest
+        name: bar_job
+        steps:
+            - name: bar_step_1
+              timeout-minutes: 1
+              run: |
+                  sleep 2m
