@@ -1,0 +1,16 @@
+name: "Basic: Matrix"
+
+on: workflow_dispatch
+
+jobs:
+    foo_job:
+        strategy:
+            matrix:
+                os: ["ubuntu-latest", "macos-latest", "windows-latest"]
+                env: ["dev", "staging", "prod"]
+        runs-on: ${{ matrix.os }}
+        environment: ${{ matrix.env }}
+        steps:
+            - run: |
+                  echo "${{ matrix.os }} - ${{ matrix.env }}"
+                  echo "ENV_SCOPED_ENV_VAR: ${{ vars.ENV_SCOPED_ENV_VAR }}"
