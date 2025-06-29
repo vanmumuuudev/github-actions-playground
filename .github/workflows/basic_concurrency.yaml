@@ -1,0 +1,21 @@
+name: "Basic Concurrency"
+
+on: workflow_dispatch
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        name: Build
+        steps:
+            - run: |
+                  echo "Build"
+    deploy:
+        runs-on: ubuntu-latest
+        name: Deploy
+        concurrency:
+            group: deployment
+            cancel-in-progress: false
+        steps:
+            - run: |
+                  echo "Deploy"
+                  sleep 1m
