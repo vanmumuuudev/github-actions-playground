@@ -1,0 +1,13 @@
+name: "Basic: Scheduling"
+
+on:
+    schedule:
+        - cron: "*/2 * * * *"
+
+jobs:
+    foo_job:
+        runs-on: ubuntu-latest
+        name: foo_job
+        steps:
+            - run: |
+                  echo "foo"
