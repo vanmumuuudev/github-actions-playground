@@ -2,7 +2,7 @@ name: "Basic: Scheduling"
 
 on:
     schedule:
-        - cron: "*/2 * * * *"
+        - cron: "0 0 * * *"
 
 jobs:
     foo_job:
