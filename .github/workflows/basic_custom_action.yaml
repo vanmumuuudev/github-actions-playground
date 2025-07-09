@@ -8,3 +8,8 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: ./.github/actions/hello-world
+    ascii_art:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: ./.github/actions/ascii-art
