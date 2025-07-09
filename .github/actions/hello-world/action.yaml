@@ -1,0 +1,6 @@
+name: "Hello World"
+description: "Prints 'Hello World!' to the console"
+
+runs:
+    using: node20
+    main: dist/index.js

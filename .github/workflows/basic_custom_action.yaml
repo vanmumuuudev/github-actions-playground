@@ -1,0 +1,10 @@
+name: "Basic: Custom Action"
+
+on: workflow_dispatch
+
+jobs:
+    hello_world:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: ./.github/actions/hello-world
