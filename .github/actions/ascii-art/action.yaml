@@ -3,4 +3,4 @@ description: "Prints 'Hello!' ASCII art to the console"
 
 runs:
     using: node20
-    main: src/index.js
+    main: dist/index.js
