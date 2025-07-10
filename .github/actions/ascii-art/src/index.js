@@ -1,3 +1,6 @@
+import actions_core from "@actions/core";
 import figlet from "figlet";
 
-console.log(figlet.textSync("Hello!"));
+const message = actions_core.getInput("message");
+
+console.log(figlet.textSync(message));

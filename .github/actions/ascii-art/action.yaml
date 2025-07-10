@@ -1,5 +1,11 @@
 name: "ASCII Art"
-description: "Prints 'Hello!' ASCII art to the console"
+description: "Prints input message as ASCII art to the console"
+
+inputs:
+    message:
+        description: "Message to be printed as ASCII art to the console"
+        required: false
+        default: "Hello!"
 
 runs:
     using: node20
