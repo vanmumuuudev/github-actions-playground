@@ -1,0 +1,14 @@
+name: "Basic: Custom Action Input / Output"
+
+on: workflow_dispatch
+
+jobs:
+    print_day:
+        runs-on: ubuntu-latest
+        steps:
+            - id: get_day
+              uses: ./.github/actions/get-day
+            - id: ascii_art
+              uses: ./.github/actions/ascii-art
+              with:
+                  message: ${{ steps.get_day.outputs.day }}

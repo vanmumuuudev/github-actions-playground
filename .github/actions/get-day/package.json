@@ -1,0 +1,11 @@
+{
+    "name": "get-day",
+    "version": "1.0.0",
+    "main": "src/index.js",
+    "license": "MIT",
+    "dependencies": {
+        "@actions/core": "^1.11.1",
+        "@actions/github": "^6.0.1"
+    },
+    "type": "module"
+}

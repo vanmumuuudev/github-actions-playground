@@ -1,0 +1,10 @@
+name: "Get Day"
+description: "Get the current day"
+
+outputs:
+    day:
+        description: "The current day"
+
+runs:
+    using: node20
+    main: dist/index.js
