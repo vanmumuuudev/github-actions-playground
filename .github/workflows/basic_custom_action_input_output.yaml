@@ -6,6 +6,8 @@ jobs:
     print_day:
         runs-on: ubuntu-latest
         steps:
+            - id: checkout
+              uses: actions/checkout@v4
             - id: get_day
               uses: ./.github/actions/get-day
             - id: ascii_art
