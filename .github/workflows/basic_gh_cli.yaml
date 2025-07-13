@@ -1,0 +1,13 @@
+name: "Basic: Github CLI Usage"
+
+on: workflow_dispatch
+
+jobs:
+    print_auth_status:
+        runs-on: ubuntu-latest
+        env:
+            GITHUB_TOKEN: ${{ github.token }}
+        steps:
+            - name: "Print Auth status"
+              run: |
+                  gh auth status --active
