@@ -34,3 +34,6 @@ jobs:
             - id: run_e2e_prod
               run: |
                   echo "Running E2E tests on Production"
+            - id: create_tag
+              run: |
+                  echo "Creating tag"
