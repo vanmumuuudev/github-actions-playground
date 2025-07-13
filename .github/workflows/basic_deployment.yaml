@@ -1,0 +1,36 @@
+name: "Basic: Deployment"
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy_to_staging:
+        runs-on: ubuntu-latest
+        environment: staging
+        steps:
+            - id: download_artifacts
+              run: |
+                  echo "Downloading artifacts from Artifactory"
+            - id: upload_artifacts_to_staging_cdn
+              run: |
+                  echo "Uploading artifacts to Staging CDN"
+            - id: run_e2e_staging
+              run: |
+                  echo "Running E2E tests on Staging"
+    deploy_to_prod:
+        runs-on: ubuntu-latest
+        environment: prod
+        needs: [deploy_to_staging]
+        steps:
+            - id: download_artifacts
+              run: |
+                  echo "Downloading artifacts from Artifactory"
+            - id: upload_artifacts_to_prod_cdn
+              run: |
+                  echo "Uploading artifacts to Production CDN"
+            - id: run_e2e_prod
+              run: |
+                  echo "Running E2E tests on Production"
