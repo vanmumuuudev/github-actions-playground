@@ -2,6 +2,9 @@ name: "Basic: Github CLI Usage"
 
 on: workflow_dispatch
 
+permissions:
+    contents: read
+
 jobs:
     print_auth_status:
         runs-on: ubuntu-latest
