@@ -5,11 +5,11 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
+    - package-ecosystem: "npm"
+      directories: ["/.github/actions/ascii-art", "/.github/actions/get-day"]
+      schedule:
+          interval: "daily"
+    - package-ecosystem: "github-actions"
+      directory: "/"
+      schedule:
+          interval: "weekly"
